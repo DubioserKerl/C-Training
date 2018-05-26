@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.IO;
+
 namespace WpfApp1
 {
     /// <summary>
@@ -28,7 +30,22 @@ namespace WpfApp1
 
         public bool OpenFile(string filename)
         {
-            return false;
+            string fileContent;
+            try
+            {
+                fileContent = System.IO.File.ReadAllText(filename);
+            }
+            catch (Exception ex)
+            {
+                if (ex is System.UnauthorizedAccessException || ex is IOException|| ex is System.ArgumentException)
+                {
+                    contentTextblock.Text = "Error reading file " + filename + "\n\n" + ex.ToString();
+                    return false;
+                }
+                throw;
+            }
+            contentTextblock.Text = fileContent;
+            return true;
         }
     }
 }

@@ -19,23 +19,26 @@ namespace WpfApp1
         {
             startupArgs = e.Args;
             // Create the startup window
-            MainWindow wnd = new MainWindow();
+            MainWindow mainWnd = new MainWindow();
             if (e.Args.Length >= 1)
             {
-                bool openSucc = wnd.OpenFile(e.Args[0]);
+                bool openSucc = mainWnd.OpenFile(e.Args[0]);
 
             }
             if (e.Args.Length >= 3)
             {
-                wnd.Width = Convert.ToDouble(e.Args[1]);
-                wnd.Height = Convert.ToDouble(e.Args[2]);
+                mainWnd.Width = Convert.ToDouble(e.Args[1]);
+                mainWnd.Height = Convert.ToDouble(e.Args[2]);
             }
 
                 // Show the window
-            wnd.Show();
+            mainWnd.Show();
 
-            HelloWorld wnd2 = new HelloWorld();
-            wnd2.Show();
+            HelloWorld hwWnd = new HelloWorld();
+            hwWnd.Show();
+
+            ButtonClick btnClickWnd = new ButtonClick();
+            btnClickWnd.Show();
         }
     }
 }

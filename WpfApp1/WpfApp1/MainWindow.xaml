@@ -6,8 +6,20 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
+        Background="{DynamicResource WindowBackgroundBrush}"
         Title="My First Main Window" Height="720" Width="1280">
+    <Window.Resources>
+ 
+        <LinearGradientBrush x:Key="WindowBackgroundBrush">
+            <GradientStop Offset="0" Color="Silver"/>
+            <GradientStop Offset="1" Color="Gray"/>
+        </LinearGradientBrush>
+    </Window.Resources>
     <Grid>
-        
+        <ScrollViewer>
+            <TextBlock Name="contentTextblock" Margin="10" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="15">
+                No File to be opened.
+            </TextBlock>
+        </ScrollViewer>
     </Grid>
 </Window>
