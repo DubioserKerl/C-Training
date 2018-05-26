@@ -1,2 +1,1 @@
 Dieses Projekt enthält Spielereien und Fingerübungen zum Lernen von C# und WPF.
-
